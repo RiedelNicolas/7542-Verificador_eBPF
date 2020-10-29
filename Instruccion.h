@@ -4,9 +4,13 @@
 
 #ifndef INC_7542_VERIFICADOR_EBPF_VERTICE_H
 #define INC_7542_VERIFICADOR_EBPF_VERTICE_H
+#include <string>
 
-
-class Vertice {
+class Instruccion {
+private:
+    int NumInstruccion;
+    std::string nombre;
+public:
 
 };
 
