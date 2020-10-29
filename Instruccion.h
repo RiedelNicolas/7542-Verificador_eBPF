@@ -14,6 +14,7 @@ private:
     std::string etiqueta;
     std::list<Instruccion*> adyacentes;
 public:
+    Instruccion();
     Instruccion(std::string etiqueta, int numInstruccion );
     Instruccion(int numInstruccion );
     std::string getEtiqueta();

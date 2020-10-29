@@ -4,6 +4,10 @@
 
 #include "Instruccion.h"
 
+Instruccion::Instruccion() {
+    this->numInstruccion = -1;
+};
+
 Instruccion::Instruccion(std::string etiqueta, int numInstruccion) {
 this->etiqueta = etiqueta;
 this->numInstruccion = numInstruccion;
@@ -23,5 +27,7 @@ std::list<Instruccion*> Instruccion::getAdyacentes() {
 
 void Instruccion::agregarAdyacente(Instruccion *adyacente) {
     this->adyacentes.push_back(adyacente);
-};
+}
+
+
 
