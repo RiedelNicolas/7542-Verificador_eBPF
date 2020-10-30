@@ -11,9 +11,11 @@ private:
     Instruccion instruccion;
     std::list<Nodo*> adyacentes;
 public:
+    Nodo();
     Nodo(Instruccion instruccion);
     std::list<Nodo*> get_adyacentes();
     void agregar_adyacente(Nodo*);
+    Instruccion get_instruccion();
 };
 
 
