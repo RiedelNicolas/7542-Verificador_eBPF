@@ -1,10 +1,21 @@
 #include <iostream>
-#include "Nodo.h"
+#include "Grafo.h"
+#include <list>
+
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    Instruccion instruccion("Jorge",5);
-    Nodo nodo1(instruccion);
-    Nodo nodo2(Instruccion("Mocoreta", 6));
-    nodo1.agregar_adyacente(&nodo2);
+
+    Grafo grafo;
+    Instruccion instruccion1("ana", 1);
+    Instruccion instruccion2("belen", 2);
+    Instruccion instruccion3("carla", 3);
+
+    grafo.agregarNodo(Nodo(instruccion1));
+    grafo.agregarNodo(Nodo(instruccion2));
+    grafo.agregarNodo(Nodo(instruccion3));
+    grafo.insertarArista(1,2);
+    grafo.insertarArista(2,"carla");
+
+    std::list<Nodo> nodos = grafo.getNodos();
     return 0;
+
 }

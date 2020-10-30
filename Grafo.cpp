@@ -54,7 +54,7 @@ bool Grafo::existeNodo(std::string buscado) {
 
 Nodo& Grafo::buscarNodo(int buscado) {
 
-    for (auto i : this->nodos) {
+    for (auto &i : this->nodos) {
         if ( i.getInstruccion().getNum() == buscado ){
             return i;
         }
@@ -63,7 +63,7 @@ Nodo& Grafo::buscarNodo(int buscado) {
 
 Nodo& Grafo::buscarNodo(std::string buscado) {
 
-    for (auto i : this->nodos) {
+    for (auto &i : this->nodos) {
         if ( i.getInstruccion().getEtiqueta() == buscado ){
             return i;
         }
