@@ -8,7 +8,6 @@ Nodo::Nodo(Instruccion& instruccion) {
     this->instruccion = instruccion;
 }
 
-
 void Nodo::agregar_adyacente(Nodo* adyacente) {
     this->adyacentes.push_back(adyacente);
 }
