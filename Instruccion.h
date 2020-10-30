@@ -9,7 +9,7 @@
 #include <list>
 
 class Instruccion {
-private:
+protected:
     int numInstruccion;
     std::string etiqueta;
 public:
