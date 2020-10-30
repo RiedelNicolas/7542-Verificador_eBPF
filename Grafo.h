@@ -20,7 +20,7 @@ public:
     void agregarNodo(Nodo nodo);
     int insertarArista(int origen, int destino);
     int insertarArista(int origen, std::string tagDestino);
-    const std::list<Nodo> & getNodos();
+    const std::list<Nodo>& getNodos();
 };
 
 
