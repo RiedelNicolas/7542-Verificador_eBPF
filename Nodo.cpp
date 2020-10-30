@@ -4,13 +4,10 @@
 
 #include "Nodo.h"
 
-Nodo::Nodo(Instruccion instruccion) {
+Nodo::Nodo(Instruccion& instruccion) {
     this->instruccion = instruccion;
 }
 
-Nodo::Nodo() {
-    printf("Se creo un nodo por default");
-}
 
 void Nodo::agregar_adyacente(Nodo* adyacente) {
     this->adyacentes.push_back(adyacente);

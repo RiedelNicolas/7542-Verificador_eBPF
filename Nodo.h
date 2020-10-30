@@ -12,7 +12,7 @@ private:
     std::list<Nodo*> adyacentes; //No se puede usar containers a referencias.
 public:
     Nodo();
-    Nodo(Instruccion instruccion);
+    Nodo(Instruccion& instruccion);
     const std::list<Nodo*>& getAdyacentes();
     void agregar_adyacente(Nodo*);
     Instruccion getInstruccion();
