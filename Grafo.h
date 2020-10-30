@@ -13,7 +13,8 @@ private:
     std::list<Nodo> nodos;
     bool existeNodo(int buscado);
     bool existeNodo(std::string buscado);
-    Nodo
+    Nodo* buscarNodo(int buscado);
+    Nodo* buscarNodo(std::string buscado);
 public:
     Grafo();
     void agregarNodo(Nodo nodo);
