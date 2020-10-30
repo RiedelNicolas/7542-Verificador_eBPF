@@ -16,7 +16,7 @@ void Nodo::agregar_adyacente(Nodo* adyacente) {
     this->adyacentes.push_back(adyacente);
 }
 
-std::list<Nodo *> Nodo::getAdyacentes() {
+std::list<Nodo *>& Nodo ::getAdyacentes() {
     return this->adyacentes;
 }
 
