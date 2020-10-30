@@ -24,7 +24,7 @@ std::list<Nodo> *Grafo::getNodos() {
     return &(this->nodos);
 }
 
-bool Grafo::existeVertice(int buscado) {
+bool Grafo::existeNodo(int buscado) {
 
     for (auto i : this->nodos) {
          if ( i.getInstruccion().getNum() == buscado ){
@@ -34,7 +34,7 @@ bool Grafo::existeVertice(int buscado) {
     return false;
 }
 
-bool Grafo::existeVertice(std::string buscado) {
+bool Grafo::existeNodo(std::string buscado) {
 
     for (auto i : this->nodos) {
         if ( i.getInstruccion().getEtiqueta() == buscado ){

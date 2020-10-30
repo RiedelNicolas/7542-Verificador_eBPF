@@ -11,8 +11,9 @@
 class Grafo {
 private:
     std::list<Nodo> nodos;
-    bool existeVertice(int buscado);
-    bool existeVertice(std::string buscado);
+    bool existeNodo(int buscado);
+    bool existeNodo(std::string buscado);
+    Nodo
 public:
     Grafo();
     void agregarNodo(Nodo nodo);
