@@ -21,5 +21,10 @@ std::string Instruccion::getEtiqueta() {
     return (this->etiqueta );
 }
 
+int Instruccion::getNum() {
+    return (this->numInstruccion);
+}
+
+
 
 

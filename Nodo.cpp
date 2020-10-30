@@ -16,10 +16,10 @@ void Nodo::agregar_adyacente(Nodo* adyacente) {
     this->adyacentes.push_back(adyacente);
 }
 
-std::list<Nodo *> Nodo::get_adyacentes() {
+std::list<Nodo *> Nodo::getAdyacentes() {
     return this->adyacentes;
 }
 
-Instruccion Nodo::get_instruccion(){
+Instruccion Nodo::getInstruccion(){
     return this->instruccion;
 }

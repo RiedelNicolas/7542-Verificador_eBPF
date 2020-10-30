@@ -17,6 +17,7 @@ public:
     Instruccion(std::string etiqueta, int numInstruccion );
     Instruccion(int numInstruccion );
     std::string getEtiqueta();
+    int getNum();
 };
 
 

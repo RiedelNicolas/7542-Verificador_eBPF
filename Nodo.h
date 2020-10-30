@@ -13,9 +13,9 @@ private:
 public:
     Nodo();
     Nodo(Instruccion instruccion);
-    std::list<Nodo*> get_adyacentes();
+    std::list<Nodo*> getAdyacentes();
     void agregar_adyacente(Nodo*);
-    Instruccion get_instruccion();
+    Instruccion getInstruccion();
 };
 
 
