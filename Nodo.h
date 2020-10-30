@@ -9,7 +9,7 @@
 class Nodo {
 private:
     Instruccion instruccion;
-    std::list<Nodo*> adyacentes;
+    std::list<Nodo*> adyacentes; //No se puede usar containers a referencias.
 public:
     Nodo();
     Nodo(Instruccion instruccion);

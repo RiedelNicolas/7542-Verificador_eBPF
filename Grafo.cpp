@@ -16,7 +16,7 @@ int Grafo::insertarArista(int origen, int destino) {
     if( !existeNodo(origen) || !existeNodo(destino) ){
         return -1;
     }
-    buscarNodo(origen).agregar_adyacente(buscarNodo(destino));
+    buscarNodo(origen).agregar_adyacente(&buscarNodo(destino));
     return 0;
 }
 
@@ -24,7 +24,7 @@ int Grafo::insertarArista(int origen, std::string tagDestino) {
     if( !existeNodo(origen) || !existeNodo(tagDestino) ){
         return -1;
     }
-    buscarNodo(origen).agregar_adyacente(buscarNodo(tagDestino));
+    buscarNodo(origen).agregar_adyacente(&buscarNodo(tagDestino));
     return 0;
 }
 
