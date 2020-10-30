@@ -16,7 +16,7 @@ int Grafo::insertarArista(int origen, int destino) {
     if( !existeNodo(origen) || !existeNodo(destino) ){
         return -1;
     }
-    buscarNodo(origen)->agregar_adyacente(buscarNodo(destino));
+    buscarNodo(origen).agregar_adyacente(buscarNodo(destino));
     return 0;
 }
 
@@ -24,12 +24,12 @@ int Grafo::insertarArista(int origen, std::string tagDestino) {
     if( !existeNodo(origen) || !existeNodo(tagDestino) ){
         return -1;
     }
-    buscarNodo(origen)->agregar_adyacente(buscarNodo(tagDestino));
+    buscarNodo(origen).agregar_adyacente(buscarNodo(tagDestino));
     return 0;
 }
 
-std::list<Nodo> *Grafo::getNodos() {
-    return &(this->nodos);
+const std::list<Nodo>& Grafo::getNodos() {
+    return this->nodos;
 }
 
 bool Grafo::existeNodo(int buscado) {
@@ -52,25 +52,21 @@ bool Grafo::existeNodo(std::string buscado) {
     return false;
 }
 
-Nodo *Grafo::buscarNodo(int buscado) {
+Nodo& Grafo::buscarNodo(int buscado) {
 
     for (auto i : this->nodos) {
         if ( i.getInstruccion().getNum() == buscado ){
             return i;
         }
     }
-
-    return nullptr;
 }
 
-Nodo *Grafo::buscarNodo(std::string buscado) {
+Nodo& Grafo::buscarNodo(std::string buscado) {
 
     for (auto i : this->nodos) {
         if ( i.getInstruccion().getEtiqueta() == buscado ){
             return i;
         }
     }
-
-    return nullptr;
 }
 

@@ -13,14 +13,14 @@ private:
     std::list<Nodo> nodos;
     bool existeNodo(int buscado);
     bool existeNodo(std::string buscado);
-    Nodo* buscarNodo(int buscado);
-    Nodo* buscarNodo(std::string buscado);
+    Nodo& buscarNodo(int buscado);
+    Nodo& buscarNodo(std::string buscado);
 public:
     Grafo();
     void agregarNodo(Nodo nodo);
     int insertarArista(int origen, int destino);
     int insertarArista(int origen, std::string tagDestino);
-    std::list<Nodo>* getNodos();
+    const std::list<Nodo> & getNodos();
 };
 
 
