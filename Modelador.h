@@ -4,17 +4,20 @@
 
 #ifndef INC_7542_VERIFICADOR_EBPF_MODELADOR_H
 #define INC_7542_VERIFICADOR_EBPF_MODELADOR_H
-#include <fstream>
 #include "Grafo.h"
+#include <list>
 
 class Modelador{
+
 private:
-std::ifstream archivo;
-public:
-    explicit Modelador(std::string archivo);
+    std:: list<std::string> lineas;
+
     int cargarInstrucciones(Grafo& grafo);
     int relacionarInstrucciones(Grafo& grafo);
-
+    int cargarLineas(std::string path);
+public:
+    explicit Modelador();
+    int modelar(Grafo& grafo, std::string path);
     ~Modelador();
 };
 
