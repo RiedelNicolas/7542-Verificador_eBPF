@@ -3,6 +3,7 @@
 //
 
 #include "Modelador.h"
+
 #include <fstream>
 #include <sstream>
 
@@ -13,6 +14,8 @@ int Modelador::cargarInstrucciones(Grafo &grafo) {
     for (auto const& i : this->lineas) {
         i.find(':');
     }
+
+
 }
 
 int Modelador::relacionarInstrucciones(Grafo &grafo) {
