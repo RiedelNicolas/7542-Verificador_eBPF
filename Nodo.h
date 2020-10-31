@@ -13,12 +13,12 @@ private:
     std::string label;
     std::list<Nodo*> adyacentes; //No se puede usar containers a referencias.
 public:
-    explicit Nodo(int id);
-    explicit Nodo(int id, std::string label);
+    explicit Nodo(const int& id);
+    explicit Nodo(const int& id, const std::string& label);
     const std::list<Nodo*>& getAdyacentes();
     void agregar_adyacente(Nodo*);
-    int obtenerId();
-    std::string obtenerLabel();
+    const int& obtenerId();
+    const std::string& obtenerLabel();
 };
 
 

@@ -35,7 +35,7 @@ const std::list<Nodo>& Grafo::getNodos() {
 bool Grafo::existeNodo(int buscado) {
 
     for (auto i : this->nodos) {
-         if ( i.getInstruccion().getNum() == buscado ){
+         if ( i.obtenerId() == buscado ){
              return true;
          }
     }
@@ -45,7 +45,7 @@ bool Grafo::existeNodo(int buscado) {
 bool Grafo::existeNodo(std::string buscado) {
 
     for (auto i : this->nodos) {
-        if ( i.getInstruccion().getEtiqueta() == buscado ){
+        if ( i.obtenerLabel() == buscado ){
             return true;
         }
     }
@@ -55,7 +55,7 @@ bool Grafo::existeNodo(std::string buscado) {
 Nodo& Grafo::buscarNodo(int buscado) {
 
     for (auto &i : this->nodos) {
-        if ( i.getInstruccion().getNum() == buscado ){
+        if ( i.obtenerId() == buscado ){
             return i;
         }
     }
@@ -64,7 +64,7 @@ Nodo& Grafo::buscarNodo(int buscado) {
 Nodo& Grafo::buscarNodo(std::string buscado) {
 
     for (auto &i : this->nodos) {
-        if ( i.getInstruccion().getEtiqueta() == buscado ){
+        if ( i.obtenerLabel() == buscado ){
             return i;
         }
     }

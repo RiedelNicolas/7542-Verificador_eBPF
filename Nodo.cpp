@@ -14,19 +14,19 @@ const std::list<Nodo *>& Nodo ::getAdyacentes() {
     return this->adyacentes;
 }
 
-int Nodo::obtenerId() {
-    return 0;
+const int & Nodo::obtenerId() {
+    return this->id;
 }
 
-std::string Nodo::obtenerLabel() {
-    return std::__cxx11::string();
+const std::string & Nodo::obtenerLabel() {
+    return this->label;
 }
 
-Nodo::Nodo(int id, std::string label) {
+Nodo::Nodo(const int& id, const std::string& label) {
     this->id = id;
     this->label = label;
 }
 
-Nodo::Nodo(int id) {
+Nodo::Nodo(const int& id) {
     this->id = id;
 }
