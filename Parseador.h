@@ -8,6 +8,7 @@
 
 #include <string>
 #include <list>
+#include <fstream>
 #include "Instruccion.h"
 
 class Parseador {
@@ -15,10 +16,11 @@ private:
      const char finDeLabel;
      const char delimitador;
      const char finArg;
-
+     int iteracion;
+     Instruccion parsearInstruccion(std::string& linea);
 public:
     Parseador();
-    void parsearInstrucciones(std::ifstream archivo,
+    void parsearInstrucciones(std::ifstream& archivo,
              std::list<Instruccion>& instrucciones);
 };
 

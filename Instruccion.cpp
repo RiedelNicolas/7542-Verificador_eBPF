@@ -8,11 +8,11 @@ Instruccion::Instruccion(const int& numInstruccion ){
     this->numInstruccion = numInstruccion;
 }
 
-std::string Instruccion::getEtiqueta()& {
+std::string& Instruccion::getEtiqueta() {
     return (this->etiqueta );
 }
 
-int Instruccion::getNum()& {
+int& Instruccion::getNum() {
     return (this->numInstruccion);
 }
 
@@ -24,7 +24,7 @@ void Instruccion::setIdentificador(const std::string &etiqueta) {
     this->identificador = identificador;
 }
 
-std::vector<std::string>& getArgs() {
+std::vector<std::string>& Instruccion::getArgs() {
     return this->argumentos;
 }
 

@@ -18,7 +18,6 @@ private:
     int relacionarInstrucciones(Grafo& grafo);
     int parsearInstrucciones(std::string path);
 public:
-    explicit Modelador();
     int modelar(Grafo& grafo, std::string path);
     ~Modelador();
 };

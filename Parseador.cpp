@@ -4,6 +4,19 @@
 
 #include "Parseador.h"
 
+void Parseador::parsearInstrucciones(std::ifstream& archivo, std::list<Instruccion> &instrucciones) {
+    this->iteracion = 0;
+    std::string linea;
+    while (std::getline(archivo,linea )) {
+        instrucciones.push_back(parsearInstruccion(linea) ) ;
+    }
+}
+
+Instruccion Parseador::parsearInstruccion(std::string &linea) {
+    return Instruccion(1);
+}
+
+/*
 const std::string Parseador::encontrarLabel(const std::string &linea) {
     std::string label;
     size_t pos = linea.find(this->finDeLabel);
@@ -13,12 +26,14 @@ const std::string Parseador::encontrarLabel(const std::string &linea) {
     label = linea.substr(0,pos);
     return label;
 }
-
+*/
 Parseador::Parseador() :finDeLabel(':'),
                         delimitador(' '),
                         finArg(','){
-
+    this->iteracion = 0;
 }
+/*
+
 
 const std::string Parseador::encontrarInstruccion(const std::string &linea) {
 
@@ -35,3 +50,4 @@ const std::string Parseador::encontrarInstruccion(const std::string &linea) {
             ,pos_ins));
     return ins;
 }
+*/

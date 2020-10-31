@@ -8,8 +8,6 @@
 #include <sstream>
 #include <vector>
 
-Modelador::Modelador() {
-}
 
 int Modelador::cargarInstrucciones(Grafo &grafo) {
     for (auto& ins : this->instrucciones) {
@@ -55,9 +53,10 @@ int Modelador::modelar(Grafo &grafo, std::string path) {
 
 int Modelador::parsearInstrucciones(std::string path) {
     std::ifstream archivo(path);
-    if( !archivo.is_open() ) return -1;
-    this->parseador.parsearInstrucciones(archivo,
-                                         this->instrucciones);
+    if( !archivo.is_open() ) {
+        return -1;
+    }
+   parseador.parsearInstrucciones(archivo, this->instrucciones);
     return 0;
 }
 
