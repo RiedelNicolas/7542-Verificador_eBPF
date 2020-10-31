@@ -6,7 +6,7 @@
 
 
 
-void Nodo::agregar_adyacente(Nodo* adyacente) {
+void Nodo::agregar_adyacente( Nodo* adyacente) {
     this->adyacentes.push_back(adyacente);
 }
 
