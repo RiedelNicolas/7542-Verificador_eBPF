@@ -10,15 +10,11 @@
 
 class Parseador {
 private:
-    static const char finDeLabel = ':';
-    static const char identificadorJump = 'j';
-    static const std::string identificadorRet = "ret";
+     const char finDeLabel;
 public:
+    Parseador();
     const std::string encontrarLabel(const std::string& linea);
-
-    const std::string label(const std::string &linea);
-
-    const std::string label(std::string &linea);
+    const std::string encontrarIns(const std::string& linea);
 };
 
 

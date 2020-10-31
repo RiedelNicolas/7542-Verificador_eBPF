@@ -10,6 +10,19 @@ const std::string Parseador::encontrarLabel(const std::string &linea) {
     if(pos == std::string::npos ){
         return label; //un string vacio.
     }
-    label = linea.substr(0,pos-1);
+    label = linea.substr(0,pos);
     return label;
+}
+
+Parseador::Parseador() :finDeLabel(':'){
+}
+
+const std::string Parseador::encontrarIns(const std::string &linea) {
+
+    std::string ins;
+    size_t pos_label  = linea.find(this->finDeLabel);
+    if( linea.find(this->finDeLabel) == std::string::npos ){
+
+    }
+
 }

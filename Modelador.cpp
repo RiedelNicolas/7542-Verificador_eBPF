@@ -14,14 +14,18 @@ int Modelador::cargarInstrucciones(Grafo &grafo) {
     std::string label;
     int i = 0;
     for (auto const& linea : this->lineas) {
-         label = parseador.encontrarLabel(i);
+         label = parseador.encontrarLabel(linea);
          grafo.agregarNodo( Nodo(i,label) );
          i++;
     }
 }
 
 int Modelador::relacionarInstrucciones(Grafo &grafo) {
-    return 0;
+    std::string ins;
+    int i = 0;
+    for (auto const& linea : this->lineas) {
+        ins = parseador.encontrarInstruccion(linea);
+    }
 }
 
 Modelador::~Modelador() {
