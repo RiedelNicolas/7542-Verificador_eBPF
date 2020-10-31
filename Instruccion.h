@@ -19,6 +19,7 @@ public:
     explicit Instruccion(const int& numInstruccion );
     void setEtiqueta(const std::string& etiqueta);
     void setIdentificador(const std::string& etiqueta);
+    void setArgs(std::vector<std::string>& args);
     int& getNum();
     std::vector<std::string>& getArgs();
     std::string& getEtiqueta();

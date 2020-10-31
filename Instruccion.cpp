@@ -44,6 +44,10 @@ bool Instruccion::esRegular() {
     return !(esJump() || esRetorno());
 }
 
+void Instruccion::setArgs(std::vector<std::string> &args) {
+    this->argumentos = args;
+}
+
 
 
 

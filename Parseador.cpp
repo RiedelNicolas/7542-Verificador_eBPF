@@ -4,16 +4,27 @@
 
 #include "Parseador.h"
 
-void Parseador::parsearInstrucciones(std::ifstream& archivo, std::list<Instruccion> &instrucciones) {
+void Parseador::parsearInstrucciones(std::ifstream& archivo,
+                                     std::list<Instruccion> &instrucciones) {
     this->iteracion = 0;
     std::string linea;
     while (std::getline(archivo,linea )) {
         instrucciones.push_back(parsearInstruccion(linea) ) ;
+        this->iteracion++;
     }
 }
 
 Instruccion Parseador::parsearInstruccion(std::string &linea) {
-    return Instruccion(1);
+    Instruccion instruccion(this->iteracion);
+    std::vector<std::string> args;
+    std::string aux;
+    size_t pos = linea.find(this->finDeLabel);
+    if(pos != std::string::npos ){
+        aux = linea.substr(pos);
+        linea.erase(0,pos);
+    }
+    instruccion.setEtiqueta(aux);
+
 }
 
 /*
