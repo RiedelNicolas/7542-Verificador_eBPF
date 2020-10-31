@@ -3,6 +3,7 @@
 //
 
 #include <sstream>
+#include <algorithm>
 #include "Parseador.h"
 
 void Parseador::parsearInstrucciones(std::ifstream& archivo,
@@ -37,9 +38,11 @@ Instruccion Parseador::parsearInstruccion(std::string &linea) {
     std::stringstream s (linea);
     while(s.good() ){
         getline(s, aux, ',');
+       aux.erase(std::remove_if(aux.begin(), aux.end(), ::isspace), aux.end());
         args.push_back(aux);
     }
     instruccion.setArgs(args);
+    return instruccion;
 }
 
 /*

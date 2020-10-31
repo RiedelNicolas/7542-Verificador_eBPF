@@ -20,8 +20,8 @@ void Instruccion::setEtiqueta(const std::string &etiqueta) {
     this->etiqueta = etiqueta;
 }
 
-void Instruccion::setIdentificador(const std::string &etiqueta) {
-    this->identificador = identificador;
+void Instruccion::setIdentificador(const std::string &id) {
+    this->identificador = id;
 }
 
 std::vector<std::string>& Instruccion::getArgs() {
