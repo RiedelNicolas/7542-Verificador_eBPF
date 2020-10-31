@@ -6,11 +6,11 @@
 
 Instruccion::Instruccion() {
     this->numInstruccion = -1;
-};
+}
 
 Instruccion::Instruccion(std::string etiqueta, int numInstruccion) {
-this->etiqueta = etiqueta;
-this->numInstruccion = numInstruccion;
+    this->etiqueta = etiqueta;
+    this->numInstruccion = numInstruccion;
 }
 
 Instruccion::Instruccion(int numInstruccion ){
