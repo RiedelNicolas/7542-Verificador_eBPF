@@ -10,6 +10,7 @@ void Parseador::parsearInstrucciones(std::ifstream& archivo,
     this->iteracion = 0;
     std::string linea;
     while (std::getline(archivo,linea )) {
+        if( linea.empty() ) continue;
         instrucciones.push_back(parsearInstruccion(linea) ) ;
         this->iteracion++;
     }
