@@ -9,7 +9,7 @@
 #include <vector>
 
 
-int Modelador::cargarInstrucciones(Grafo &grafo) {
+void Modelador::cargarInstrucciones(Grafo &grafo) {
     for (auto& ins : this->instrucciones) {
          std::string label = ins.getEtiqueta();
          int i = ins.getNum();
@@ -17,7 +17,7 @@ int Modelador::cargarInstrucciones(Grafo &grafo) {
     }
 }
 
-int Modelador::relacionarInstrucciones(Grafo &grafo) {
+void Modelador::relacionarInstrucciones(Grafo &grafo) {
 
     for (auto& ins : this->instrucciones) {
         std::vector<std::string>& args = ins.getArgs();

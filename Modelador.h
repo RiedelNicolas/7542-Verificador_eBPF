@@ -14,8 +14,8 @@ class Modelador{
 private:
     std:: list<Instruccion> instrucciones;
     Parseador parseador;
-    int cargarInstrucciones(Grafo& grafo);
-    int relacionarInstrucciones(Grafo& grafo);
+    void cargarInstrucciones(Grafo& grafo);
+    void relacionarInstrucciones(Grafo& grafo);
     int parsearInstrucciones(std::string path);
 public:
     int modelar(Grafo& grafo, std::string path);

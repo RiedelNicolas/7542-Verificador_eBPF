@@ -58,7 +58,8 @@ Nodo& Grafo::buscarNodo(int buscado) {
         if ( i.obtenerId() == buscado ){
             return i;
         }
-    }
+    }//default,se supone que siempre se recibe un nodo valido.
+    return this->nodos.back();
 }
 
 Nodo& Grafo::buscarNodo(std::string buscado) {
@@ -68,5 +69,6 @@ Nodo& Grafo::buscarNodo(std::string buscado) {
             return i;
         }
     }
+    return this->nodos.back();
 }
 
