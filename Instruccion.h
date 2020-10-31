@@ -20,5 +20,4 @@ public:
     int getNum();
 };
 
-
 #endif //INC_7542_VERIFICADOR_EBPF_VERTICE_H
