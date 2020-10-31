@@ -10,7 +10,9 @@ Modelador::Modelador() {
 }
 
 int Modelador::cargarInstrucciones(Grafo &grafo) {
-    return 0;
+    for (auto const& i : this->lineas) {
+        i.find(':');
+    }
 }
 
 int Modelador::relacionarInstrucciones(Grafo &grafo) {
