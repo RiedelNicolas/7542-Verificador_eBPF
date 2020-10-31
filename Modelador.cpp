@@ -6,25 +6,38 @@
 
 #include <fstream>
 #include <sstream>
+#include <vector>
 
 Modelador::Modelador() {
 }
 
 int Modelador::cargarInstrucciones(Grafo &grafo) {
-    std::string label;
-    int i = 0;
-    for (auto const& linea : this->lineas) {
-         label = parseador.encontrarLabel(linea);
-         grafo.agregarNodo( Nodo(i,label) );
-         i++;
+    for (auto& ins : this->instrucciones) {
+         std::string label = ins.getEtiqueta();
+         int i = ins.getNum();
+         grafo.agregarNodo( Nodo(i, label) );
     }
 }
 
 int Modelador::relacionarInstrucciones(Grafo &grafo) {
-    std::string ins;
-    int i = 0;
-    for (auto const& linea : this->lineas) {
-        ins = parseador.encontrarInstruccion(linea);
+
+    for (auto& ins : this->instrucciones) {
+        std::vector<std::string>& args = ins.getArgs();
+        int i = ins.getNum();
+        if(ins.esRegular()){
+            grafo.insertarArista(i, i+1);
+        }
+        if(ins.esJump()){
+            if( args.size() == 1 ){
+                grafo.insertarArista(i, args[0]);
+            }else if(args.size() == 2 ){
+                grafo.insertarArista(i,args[1]);
+                grafo.insertarArista(i,i+1);
+            }else if (args.size() == 3){
+                grafo.insertarArista(i,args[1]);
+                grafo.insertarArista(i, args[2]);
+            }
+        }
     }
 }
 
