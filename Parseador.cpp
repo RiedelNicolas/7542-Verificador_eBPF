@@ -18,12 +18,18 @@ Instruccion Parseador::parsearInstruccion(std::string &linea) {
     Instruccion instruccion(this->iteracion);
     std::vector<std::string> args;
     std::string aux;
-    size_t pos = linea.find(this->finDeLabel);
+    size_t pos, fin;
+    pos = linea.find(this->finDeLabel);
     if(pos != std::string::npos ){
-        aux = linea.substr(pos);
-        linea.erase(0,pos);
+        aux = linea.substr(0,pos);
+        linea.erase(0,pos+1);
     }
     instruccion.setEtiqueta(aux);
+    pos = linea.find_first_not_of(' ');
+    fin = linea.find_first_of(' ',pos);
+    aux = linea.substr(pos, fin-pos);
+    instruccion.setIdentificador(aux);
+    linea.erase(pos, aux.size());
 
 }
 
