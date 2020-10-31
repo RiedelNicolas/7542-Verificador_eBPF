@@ -14,7 +14,11 @@ private:
     static const char identificadorJump = 'j';
     static const std::string identificadorRet = "ret";
 public:
-    std::string encontrarLabel(const std::string& linea);
+    const std::string encontrarLabel(const std::string& linea);
+
+    const std::string label(const std::string &linea);
+
+    const std::string label(std::string &linea);
 };
 
 

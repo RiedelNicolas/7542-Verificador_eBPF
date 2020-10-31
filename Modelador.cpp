@@ -11,11 +11,13 @@ Modelador::Modelador() {
 }
 
 int Modelador::cargarInstrucciones(Grafo &grafo) {
-    for (auto const& i : this->lineas) {
-        i.find(':');
+    std::string label;
+    int i = 0;
+    for (auto const& linea : this->lineas) {
+         label = parseador.encontrarLabel(i);
+         grafo.agregarNodo( Nodo(i,label) );
+         i++;
     }
-
-
 }
 
 int Modelador::relacionarInstrucciones(Grafo &grafo) {
