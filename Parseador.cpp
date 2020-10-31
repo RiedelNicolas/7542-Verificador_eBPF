@@ -2,6 +2,7 @@
 // Created by riedel on 31/10/20.
 //
 
+#include <sstream>
 #include "Parseador.h"
 
 void Parseador::parsearInstrucciones(std::ifstream& archivo,
@@ -30,7 +31,14 @@ Instruccion Parseador::parsearInstruccion(std::string &linea) {
     aux = linea.substr(pos, fin-pos);
     instruccion.setIdentificador(aux);
     linea.erase(pos, aux.size());
-
+    pos = linea.find_first_not_of(' ');
+    linea.erase(0,pos);
+    std::stringstream s (linea);
+    while(s.good() ){
+        getline(s, aux, ',');
+        args.push_back(aux);
+    }
+    instruccion.setArgs(args);
 }
 
 /*
