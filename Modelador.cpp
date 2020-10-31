@@ -32,7 +32,7 @@ Modelador::~Modelador() {
 }
 
 int Modelador::modelar(Grafo &grafo, std::string path) {
-    if( this->cargarLineas(path) != 0  ){
+    if( this->parsearInstrucciones(path) != 0  ){
         return -1;
     }
     this->cargarInstrucciones(grafo);
@@ -40,17 +40,13 @@ int Modelador::modelar(Grafo &grafo, std::string path) {
     return 0;
 }
 
-int Modelador::cargarLineas(std::string path) {
+int Modelador::parsearInstrucciones(std::string path) {
     std::ifstream archivo(path);
-
     if( !archivo.is_open() ) return -1;
-
-    std::string linea;
-
-    while (std::getline(archivo, linea) ) {
-        std::istringstream iss(linea);
-        this->lineas.push_back(linea);
-    }
+    this->parseador.parsearInstrucciones(archivo,
+                                         this->instrucciones);
     return 0;
 }
+
+
 

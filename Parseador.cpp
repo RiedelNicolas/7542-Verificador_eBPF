@@ -14,15 +14,24 @@ const std::string Parseador::encontrarLabel(const std::string &linea) {
     return label;
 }
 
-Parseador::Parseador() :finDeLabel(':'){
+Parseador::Parseador() :finDeLabel(':'),
+                        delimitador(' '),
+                        finArg(','){
+
 }
 
-const std::string Parseador::encontrarIns(const std::string &linea) {
+const std::string Parseador::encontrarInstruccion(const std::string &linea) {
 
     std::string ins;
-    size_t pos_label  = linea.find(this->finDeLabel);
-    if( linea.find(this->finDeLabel) == std::string::npos ){
-
+    size_t pos_label,pos_ins;
+    pos_label = linea.find(this->finDeLabel);
+    if( pos_label == std::string::npos ){
+        pos_label = 0;
     }
-
+    ins = linea.substr(pos_label);
+    pos_ins = ins.find_first_not_of(' ');
+    ins = ins.substr(pos_ins,
+                     ins.find_first_of(' '
+            ,pos_ins));
+    return ins;
 }

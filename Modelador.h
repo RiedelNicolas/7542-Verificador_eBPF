@@ -6,16 +6,17 @@
 #define INC_7542_VERIFICADOR_EBPF_MODELADOR_H
 #include "Grafo.h"
 #include "Parseador.h"
+#include "Instruccion.h"
 #include <list>
 
 class Modelador{
 
 private:
-    std:: list<std::string> lineas;
+    std:: list<Instruccion> instrucciones;
     Parseador parseador;
     int cargarInstrucciones(Grafo& grafo);
     int relacionarInstrucciones(Grafo& grafo);
-    int cargarLineas(std::string path);
+    int parsearInstrucciones(std::string path);
 public:
     explicit Modelador();
     int modelar(Grafo& grafo, std::string path);

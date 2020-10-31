@@ -7,14 +7,19 @@
 
 
 #include <string>
+#include <list>
+#include "Instruccion.h"
 
 class Parseador {
 private:
      const char finDeLabel;
+     const char delimitador;
+     const char finArg;
+
 public:
     Parseador();
-    const std::string encontrarLabel(const std::string& linea);
-    const std::string encontrarIns(const std::string& linea);
+    void parsearInstrucciones(std::ifstream archivo,
+             std::list<Instruccion>& instrucciones);
 };
 
 
