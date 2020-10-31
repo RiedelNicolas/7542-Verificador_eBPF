@@ -4,16 +4,7 @@
 
 #include "Instruccion.h"
 
-Instruccion::Instruccion() {
-    this->numInstruccion = -1;
-}
-
-Instruccion::Instruccion(std::string etiqueta, int numInstruccion) {
-    this->etiqueta = etiqueta;
-    this->numInstruccion = numInstruccion;
-}
-
-Instruccion::Instruccion(int numInstruccion ){
+Instruccion::Instruccion(const int& numInstruccion ){
     this->numInstruccion = numInstruccion;
 }
 
@@ -23,6 +14,34 @@ std::string Instruccion::getEtiqueta() {
 
 int Instruccion::getNum() {
     return (this->numInstruccion);
+}
+
+void Instruccion::setEtiqueta(const std::string &etiqueta) {
+    this->etiqueta = etiqueta;
+}
+
+void Instruccion::setIdentificador(const std::string &etiqueta) {
+    this->identificador = identificador;
+}
+
+std::list<std::string> Instruccion::getArgs() {
+    return std::list<std::string>();
+}
+
+std::string Instruccion::getIdentificador() {
+    return this->identificador;
+}
+
+bool Instruccion::esJump() {
+    return (this->identificador[0] == 'j' );
+}
+
+bool Instruccion::esRetorno() {
+    return (this->identificador == "ret" );
+}
+
+bool Instruccion::esRegular() {
+    return !(esJump() || esRetorno());
 }
 
 
