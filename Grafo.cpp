@@ -79,7 +79,7 @@ bool Grafo::esCiclico() {
    std::vector<int> estados (this->nodos.size(), BLANCO);
     for (auto &i : this->nodos) {
         if ( estados [i.obtenerId()] == BLANCO ){
-            if( dfsAux(i.obtenerId(), estados) == true  ){
+            if( dfsCiclo(i.obtenerId(), estados) == true  ){
                 return true;
             }
         }
@@ -88,14 +88,14 @@ bool Grafo::esCiclico() {
 }
 
 
-bool Grafo::dfsAux(int principio, std::vector<int>& estados) {
+bool Grafo::dfsCiclo(int principio, std::vector<int>& estados) {
     estados[principio] = GRIS;
     for (auto &i : buscarNodo(principio).getAdyacentes() ) {
         if(estados[i->obtenerId()] == GRIS){
             return true;
         }
         if(estados[i->obtenerId()] == BLANCO &&
-                                    dfsAux(i->obtenerId(), estados )){
+                dfsCiclo(i->obtenerId(), estados )){
             return true;
         }
     }
@@ -104,6 +104,6 @@ bool Grafo::dfsAux(int principio, std::vector<int>& estados) {
 }
 
 bool Grafo::desconectado(){
-
+    return false;
 }
 
