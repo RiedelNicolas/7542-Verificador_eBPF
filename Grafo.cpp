@@ -4,6 +4,8 @@
 
 #include "Grafo.h"
 #include <vector>
+enum Estado {BLANCO, GRIS, NEGRO};
+
 
 Grafo::Grafo(){
 
@@ -74,27 +76,34 @@ Nodo& Grafo::buscarNodo(std::string buscado) {
 }
 
 bool Grafo::esCiclico() {
-   std::vector<bool> visitados (this->nodos.size(), false);
+   std::vector<int> estados (this->nodos.size(), BLANCO);
+    for (auto &i : this->nodos) {
+        if ( estados [i.obtenerId()] == BLANCO ){
+            if( dfsAux(i.obtenerId(), estados) == true  ){
+                return true;
+            }
+        }
+    }
     return false;
 }
 
-void Grafo::dfs(int principio, std::vector<bool> &visitado) {
-    visitado[principio] = true;
-    Nodo &primer = buscarNodo(principio);
-    for (auto &i : primer.getAdyacentes()) {
-        if (!visitado[i->obtenerId()]) {
-            dfs(i->obtenerId(), visitado);
-        }
-    }
-}
 
-bool Grafo::desconectado(){
-    std::vector<bool> visitados (this->nodos.size(), false);
-    for(bool i : visitados){
-        if(i == false){
+bool Grafo::dfsAux(int principio, std::vector<int>& estados) {
+    estados[principio] = GRIS;
+    for (auto &i : buscarNodo(principio).getAdyacentes() ) {
+        if(estados[i->obtenerId()] == GRIS){
+            return true;
+        }
+        if(estados[i->obtenerId()] == BLANCO &&
+                                    dfsAux(i->obtenerId(), estados )){
             return true;
         }
     }
+    estados[principio] = NEGRO;
     return false;
+}
+
+bool Grafo::desconectado(){
+
 }
 

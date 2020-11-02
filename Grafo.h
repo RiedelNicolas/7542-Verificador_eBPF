@@ -16,7 +16,7 @@ private:
     bool existeNodo(std::string buscado);
     Nodo& buscarNodo(int buscado);
     Nodo& buscarNodo(std::string buscado);
-    void dfs(int principio, std::vector<bool>& visitado);
+    bool dfsAux(int principio, std::vector<int> &visitado);
 public:
     Grafo();
     void agregarNodo(Nodo nodo);
@@ -25,6 +25,7 @@ public:
     const std::list<Nodo>& getNodos();
     bool esCiclico();
     bool desconectado();
+
 };
 
 
