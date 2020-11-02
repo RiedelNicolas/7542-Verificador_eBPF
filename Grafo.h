@@ -21,6 +21,7 @@ public:
     int insertarArista(int origen, int destino);
     int insertarArista(int origen, std::string tagDestino);
     const std::list<Nodo>& getNodos();
+    bool esCiclico();
 };
 
 
