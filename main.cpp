@@ -1,9 +1,9 @@
 #include <iostream>
 #include "Grafo.h"
 #include "Modelador.h"
-#include <list>
 
 int main() {
+
     bool ci;
     Grafo grafo;
     Modelador modelador;

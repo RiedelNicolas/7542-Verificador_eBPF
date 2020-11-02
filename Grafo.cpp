@@ -87,7 +87,6 @@ bool Grafo::esCiclico() {
     return false;
 }
 
-
 bool Grafo::dfsCiclo(int principio, std::vector<int>& estados) {
     estados[principio] = GRIS;
     for (auto &i : buscarNodo(principio).getAdyacentes() ) {
