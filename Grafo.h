@@ -6,6 +6,7 @@
 #define INC_7542_VERIFICADOR_EBPF_GRAFO_H
 #include <list>
 #include <string>
+#include <vector>
 #include "Nodo.h"
 
 class Grafo {
@@ -15,6 +16,7 @@ private:
     bool existeNodo(std::string buscado);
     Nodo& buscarNodo(int buscado);
     Nodo& buscarNodo(std::string buscado);
+    void dfs(int principio, std::vector<bool>& visitado);
 public:
     Grafo();
     void agregarNodo(Nodo nodo);
@@ -22,6 +24,7 @@ public:
     int insertarArista(int origen, std::string tagDestino);
     const std::list<Nodo>& getNodos();
     bool esCiclico();
+    bool desconectado();
 };
 
 

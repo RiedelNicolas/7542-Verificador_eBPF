@@ -3,6 +3,7 @@
 //
 
 #include "Grafo.h"
+#include <vector>
 
 Grafo::Grafo(){
 
@@ -70,5 +71,23 @@ Nodo& Grafo::buscarNodo(std::string buscado) {
         }
     }
     return this->nodos.back();
+}
+
+bool Grafo::esCiclico() {
+   std::vector<bool> visitados (this->nodos.size(), false);
+    return false;
+}
+
+void Grafo::dfs(int principio, std::vector<bool> &visitado) {
+    visitado[principio] = true;
+    Nodo& primer = buscarNodo(principio);
+    for (auto &i : primer.getAdyacentes() ) {
+        if ( !visitado[i->obtenerId()] ){
+            dfs(i->obtenerId(),visitado);
+        }
+}
+
+bool Grafo::desconectado(){
+    return false;
 }
 
