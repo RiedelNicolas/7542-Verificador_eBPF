@@ -94,16 +94,23 @@ bool Grafo::dfsCiclo(int principio, std::vector<int>& estados) {
         if(estados[i->obtenerId()] == GRIS){
             return true;
         }
-        if(estados[i->obtenerId()] == BLANCO &&
-                dfsCiclo(i->obtenerId(), estados )){
-            return true;
+        if(estados[i->obtenerId()] == BLANCO){
+            if(dfsCiclo(i->obtenerId(), estados )){
+                return true;
+            }
         }
     }
     estados[principio] = NEGRO;
     return false;
 }
 
-bool Grafo::desconectado(){
+bool Grafo::desconectado() {
+    std::vector<int> estados(this->nodos.size(), BLANCO);
+    dfsCiclo(0, estados);
+    for (const int &i : estados) {
+        if (i == BLANCO) {
+            return true;
+        }
+    }
     return false;
 }
-
