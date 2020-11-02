@@ -8,7 +8,7 @@ int main() {
     Grafo grafo;
     Modelador modelador;
     modelador.modelar(grafo,"test.txt");
-    ci = grafo.esCiclico();
+    ci = grafo.desconectado();
     std::cout << ci;
     return 0;
 

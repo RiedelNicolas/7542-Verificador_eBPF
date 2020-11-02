@@ -108,9 +108,7 @@ bool Grafo::desconectado() {
     std::vector<int> estados(this->nodos.size(), BLANCO);
     dfsCiclo(0, estados);
     for (const int &i : estados) {
-        if (i == BLANCO) {
-            return true;
-        }
+        if (i == BLANCO) return true;
     }
     return false;
 }
