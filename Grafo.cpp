@@ -80,14 +80,21 @@ bool Grafo::esCiclico() {
 
 void Grafo::dfs(int principio, std::vector<bool> &visitado) {
     visitado[principio] = true;
-    Nodo& primer = buscarNodo(principio);
-    for (auto &i : primer.getAdyacentes() ) {
-        if ( !visitado[i->obtenerId()] ){
-            dfs(i->obtenerId(),visitado);
+    Nodo &primer = buscarNodo(principio);
+    for (auto &i : primer.getAdyacentes()) {
+        if (!visitado[i->obtenerId()]) {
+            dfs(i->obtenerId(), visitado);
         }
+    }
 }
 
 bool Grafo::desconectado(){
+    std::vector<bool> visitados (this->nodos.size(), false);
+    for(bool i : visitados){
+        if(i == false){
+            return true;
+        }
+    }
     return false;
 }
 
