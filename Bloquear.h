@@ -2,19 +2,19 @@
 // Created by riedel on 2/11/20.
 //
 
-#ifndef INC_7542_VERIFICADOR_EBPF_BLOQUEAR_H
-#define INC_7542_VERIFICADOR_EBPF_BLOQUEAR_H
+#ifndef BLOQUEAR_H_
+#define BLOQUEAR_H_
 
 
 #include <mutex>
 
 class Bloquear {
-private:
+ private:
     std::mutex &mut;
-public:
-    Bloquear(std::mutex &mut);
+ public:
+    explicit Bloquear(std::mutex &mut);
     ~Bloquear();
-private:
+ private:
     Bloquear(const Bloquear&) = delete;
     Bloquear& operator=(const Bloquear&) = delete;
     Bloquear(Bloquear&&) = delete;
@@ -22,4 +22,4 @@ private:
 };
 
 
-#endif //INC_7542_VERIFICADOR_EBPF_BLOQUEAR_H
+#endif  // BLOQUEAR_H_
