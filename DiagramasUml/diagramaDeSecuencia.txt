@@ -1,0 +1,73 @@
+@startuml
+
+hide footbox
+
+
+
+participant VerificadorEBFP order 2
+participant VerificadorThread order 3 
+participant Grafo order 4
+participant Modelador order 5
+participant PilaCompartida order 6
+participant BuzonResultados order 7
+
+actor user
+user -> VerificadorEBFP: construir(archivos)
+activate VerificadorEBFP
+VerificadorEBFP -> PilaCompartida : crear()  
+activate PilaCompartida
+VerificadorEBFP -> BuzonResultados : crear()  
+activate BuzonResultados
+
+user -> VerificadorEBFP: verificar()
+
+loop paraCadaThread
+    VerificadorEBFP -> VerificadorThread : VerificadorThread(archivos, resultados) 
+    activate VerificadorThread
+    VerificadorEBFP -> VerificadorThread : VerificadorThread(archivos
+    VerificadorEBFP -> VerificadorThread : VerificadorThread(archivos
+
+    VerificadorThread --> VerificadorEBFP: verificadorConstruido
+    VerificadorEBFP -> VerificadorThread : iniciar() 
+    VerificadorThread -> VerificadorThread: run()
+    activate VerificadorThread #DarkSalmon
+    loop pilaNoVacia
+        VerificadorThread --> PilaCompartida: pop
+        PilaCompartida --> VerificadorThread: archivo
+        VerificadorThread -> Grafo : new Grafo();
+        activate Grafo
+        Grafo --> VerificadorThread:grafoConstruido
+        VerificadorThread -> Modelador : new Modelador();
+        activate Modelador
+        Modelador --> VerificadorThread: modeladorConstruido
+        VerificadorThread -> Modelador : modelar(&: grafo, archivo);
+        VerificadorThread -> Grafo : esCiclico()
+        Grafo --> VerificadorThread : esCiclico
+
+        alt esCiclico
+        VerificadorThread -> BuzonResultados: agregarConBucle(path)
+        else 
+        VerificadorThread -> Grafo : desconectado()
+        Grafo --> VerificadorThread : desconetado
+        alt desconectado
+        VerificadorThread -> BuzonResultados: agregarSinUsar(path)
+        else 
+        VerificadorThread -> BuzonResultados: agregarExito(path)
+        end
+        deactivate Grafo
+        deactivate Modelador
+    end
+    end
+    VerificadorEBFP -> VerificadorThread: join()
+    deactivate VerificadorThread
+user -> VerificadorEBFP: mostrarResultados()
+VerificadorEBFP -> BuzonResultados: mostrarResultados()
+activate BuzonResultados #DarkSalmon
+BuzonResultados -> BuzonResultados: sort()
+BuzonResultados -> user: mostrarResultados()
+Deactivate BuzonResultados
+
+end
+
+
+@endumla
