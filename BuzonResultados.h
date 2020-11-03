@@ -14,7 +14,9 @@ private:
     std::mutex m;
     void ordenar();
 public:
-    void AgregarResultado(std::string archivo, std::string mensaje);
+    void agregarConBucle(std::string path);
+    void agregarSinUsar(std::string path);
+    void agregarExitoso(std::string path);
     void MostrarResultados();
 };
 
