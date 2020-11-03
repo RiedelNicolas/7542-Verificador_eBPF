@@ -60,6 +60,8 @@ loop paraCadaThread
     end
     VerificadorEBFP -> VerificadorThread: join()
     deactivate VerificadorThread
+    
+end
 user -> VerificadorEBFP: mostrarResultados()
 VerificadorEBFP -> BuzonResultados: mostrarResultados()
 activate BuzonResultados #DarkSalmon
@@ -67,7 +69,6 @@ BuzonResultados -> BuzonResultados: sort()
 BuzonResultados -> user: mostrarResultados()
 Deactivate BuzonResultados
 
-end
 
 
 @endumla
