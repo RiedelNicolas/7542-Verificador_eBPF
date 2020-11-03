@@ -14,8 +14,8 @@ private:
     int cantidadThreads;
 public:
     VerificadorEBFP(int argc, char** argv);
-    verificar();
-    mostrarResultados();
+    void verificar();
+    void mostrarResultados();
 };
 
 

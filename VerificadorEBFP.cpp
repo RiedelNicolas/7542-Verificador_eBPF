@@ -13,10 +13,26 @@ VerificadorEBFP::VerificadorEBFP(int argc, char **argv) {
     }
 }
 
-int VerificadorEBFP::mostrarResultados() {
+void VerificadorEBFP::mostrarResultados() {
     this->resultados.MostrarResultados();
 }
 
-int VerificadorEBFP::verificar() {
+void VerificadorEBFP::verificar() {
     std::vector<Thread*> threads;
+    for (int i = 0; i < this->cantidadThreads; i++) {
+        threads.push_back(new VerificadorThread(
+                            this->archivos,
+                            this->resultados
+                ) );
+    }
+
+    for (int i = 0; i < this->cantidadThreads; i++) {
+        threads[i]->iniciar();
+    }
+
+    for (int i = 0; i < this->cantidadThreads; i++) {
+        threads[i]->join();
+        delete threads[i];
+    }
+
 }
