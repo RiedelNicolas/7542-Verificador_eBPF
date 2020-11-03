@@ -5,7 +5,7 @@
 #include "Grafo.h"
 #include <vector>
 
-enum Estado {BLANCO, GRIS, NEGRO};  // Para DFS.
+enum Estado {BLANCO, GRIS, NEGRO};  // Para modelar DFS.
 
 
 void Grafo::agregarNodo(Nodo nodo) {
@@ -79,7 +79,10 @@ bool Grafo::esCiclico() {
      }
      return false;
 }
-
+// Implementacion de DFS con colores.
+// Blanco representa nunca accedido
+// Gris significa que esta en proceso de recorrer vecinos.
+// Negro es que se recorrieron todos los vecinos correctamente.
 bool Grafo::dfsCiclo(int principio, std::vector<int>& estados) {
     estados[principio] = GRIS;
     for ( auto &i : buscarNodo(principio).getAdyacentes() ) {
@@ -95,7 +98,8 @@ bool Grafo::dfsCiclo(int principio, std::vector<int>& estados) {
     estados[principio] = NEGRO;
     return false;
 }
-
+// Si en DFS desde la raiz no se marcan
+// todos los nodos es que hay no accesibles.-
 bool Grafo::desconectado() {
     std::vector<int> estados(this->nodos.size(), BLANCO);
     dfsCiclo(0, estados);

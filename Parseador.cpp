@@ -18,6 +18,8 @@ void Parseador::parsearInstrucciones(std::ifstream& archivo,
     }
 }
 
+//  Esta funcion quedo muy larga.
+//  Por falta de tiemmpo no la llegue a encapsular.
 Instruccion Parseador::parsearInstruccion(std::string &linea) {
     Instruccion instruccion(this->iteracion);
     std::vector<std::string> args;
