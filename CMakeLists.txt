@@ -3,7 +3,7 @@ project(7542_Verificador_eBPF)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(7542_Verificador_eBPF main.cpp Grafo.cpp Instruccion.cpp Grafo.h Instruccion.h Nodo.cpp Nodo.h Modelador.cpp Modelador.h Parseador.cpp Parseador.h Thread.cpp Thread.h Bloquear.cpp Bloquear.h PilaProtegida.cpp PilaProtegida.h BuzonResultados.cpp BuzonResultados.h VerificadorEBFP.cpp VerificadorEBFP.h verificadorThread.cpp verificadorThread.h)
+add_executable(7542_Verificador_eBPF main.cpp Grafo.cpp Instruccion.cpp Grafo.h Instruccion.h Nodo.cpp Nodo.h Modelador.cpp Modelador.h Parseador.cpp Parseador.h Thread.cpp Thread.h Bloquear.cpp Bloquear.h PilaProtegida.cpp PilaProtegida.h BuzonResultados.cpp BuzonResultados.h VerificadorEBFP.cpp VerificadorEBFP.h VerificadorThread.cpp VerificadorThread.h)
 
 target_link_options(7542_Verificador_eBPF PRIVATE -lm -pthread)
 
