@@ -3,20 +3,20 @@
 //
 
 #include "VerificadorThread.h"
-
+#include <string>
 
 void VerificadorThread::run() {
     std::string path = this->archivos.desapilar();
-    if(path == "") return; //se termino la cola.
+    if (path == "") return;  // se termino la cola.
     do {
         this->grafo = new Grafo;
         this->modelador = new Modelador;
-        modelador->modelar(*grafo,path);
-        if(grafo->esCiclico()){
+        modelador->modelar(*grafo, path);
+        if (grafo->esCiclico()) {
             resultados.agregarConBucle(path);
-        }else if(grafo->desconectado()){
+        } else if (grafo->desconectado()) {
             resultados.agregarSinUsar(path);
-        }else{
+        } else {
             resultados.agregarExitoso(path);
         }
         delete this->grafo;
@@ -25,6 +25,8 @@ void VerificadorThread::run() {
     } while (path != "" );
 }
 
-VerificadorThread::VerificadorThread(PilaProtegida &archivos, BuzonResultados &resultados
-                                        ): archivos(archivos), resultados(resultados) {
+VerificadorThread::VerificadorThread(PilaProtegida &archivos,
+                                     BuzonResultados &resultados)
+                                     : archivos(archivos),
+                                     resultados(resultados) {
 }
