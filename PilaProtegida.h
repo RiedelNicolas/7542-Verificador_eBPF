@@ -6,8 +6,19 @@
 #define INC_7542_VERIFICADOR_EBPF_PILAPROTEGIDA_H
 
 
-class PilaProtegida {
+#include <string>
+#include <stack>
+#include <mutex>
+#include "Bloquear.h"
 
+class PilaProtegida {
+private:
+    std::stack<std::string> pila;
+    std::mutex m;
+public:
+    void apilar(std::string);
+    std::string desapilar();
+    bool estaVacia();
 };
 
 

@@ -3,3 +3,7 @@
 //
 
 #include "PilaProtegida.h"
+
+void PilaProtegida::apilar(std::string) {
+
+}
