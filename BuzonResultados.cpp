@@ -8,7 +8,7 @@
 
 void BuzonResultados::agregarResultado(std::string archivo,
                                        std::string mensaje) {
-    Bloquear b (this->m);
+    Bloquear b(this->m);
     this->lista.push_back(archivo +" " + mensaje);
 }
 
@@ -18,7 +18,7 @@ void BuzonResultados::ordenar() {
 
 void BuzonResultados::MostrarResultados() {
     this->ordenar();
-    for(auto &i: this->lista){
+    for (auto &i : this->lista) {
         std::cout << i << std::endl;
     }
 }
@@ -28,9 +28,9 @@ void BuzonResultados::agregarConBucle(std::string path) {
 }
 
 void BuzonResultados::agregarSinUsar(std::string path) {
-    agregarResultado(path,"FAIL: unused instructions detected" );
+    agregarResultado(path, "FAIL: unused instructions detected");
 }
 
 void BuzonResultados::agregarExitoso(std::string path) {
-    agregarResultado(path,"GOOD" );
+    agregarResultado(path, "GOOD");
 }
