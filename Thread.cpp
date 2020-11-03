@@ -3,6 +3,7 @@
 //
 
 #include "Thread.h"
+#include <utility>  // Me lo pidio cpplint.
 
 void Thread::iniciar() {
     this->thread = std::thread(&Thread::run, this);

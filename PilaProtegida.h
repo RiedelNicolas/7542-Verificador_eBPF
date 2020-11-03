@@ -2,8 +2,8 @@
 // Created by riedel on 2/11/20.
 //
 
-#ifndef INC_7542_VERIFICADOR_EBPF_PILAPROTEGIDA_H
-#define INC_7542_VERIFICADOR_EBPF_PILAPROTEGIDA_H
+#ifndef PILAPROTEGIDA_H_
+#define PILAPROTEGIDA_H_
 
 
 #include <string>
@@ -12,13 +12,13 @@
 #include "Bloquear.h"
 
 class PilaProtegida {
-private:
+ private:
     std::stack<std::string> pila;
     std::mutex m;
-public:
+ public:
     void apilar(std::string);
     std::string desapilar();
 };
 
 
-#endif //INC_7542_VERIFICADOR_EBPF_PILAPROTEGIDA_H
+#endif  // PILAPROTEGIDA_H_
