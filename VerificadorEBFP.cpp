@@ -14,7 +14,7 @@ VerificadorEBFP::VerificadorEBFP(int argc, char **argv) {
 }
 
 void VerificadorEBFP::mostrarResultados() {
-    this->resultados.MostrarResultados();
+    this->resultados.mostrarResultados();
 }
 
 void VerificadorEBFP::verificar() {

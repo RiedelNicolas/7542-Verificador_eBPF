@@ -16,7 +16,7 @@ void BuzonResultados::ordenar() {
     this->lista.sort();
 }
 
-void BuzonResultados::MostrarResultados() {
+void BuzonResultados::mostrarResultados() {
     this->ordenar();
     for (auto &i : this->lista) {
         std::cout << i << std::endl;

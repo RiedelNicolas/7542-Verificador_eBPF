@@ -19,7 +19,7 @@ class BuzonResultados {
     void agregarConBucle(std::string path);
     void agregarSinUsar(std::string path);
     void agregarExitoso(std::string path);
-    void MostrarResultados();
+    void mostrarResultados();
 };
 
 
