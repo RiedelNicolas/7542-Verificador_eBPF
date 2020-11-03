@@ -61,3 +61,6 @@ Clase heredada de Thread. Su flujo consiste en pedir un archivo a la pila compar
 
 
 
+##   Diagrama de secuencia 
+
+![Diagrama de secuencia](DiagramasUml/diagramaDeSecuencia.png)
