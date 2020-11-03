@@ -2,8 +2,8 @@
 // Created by riedel on 31/10/20.
 //
 
-#ifndef INC_7542_VERIFICADOR_EBPF_PARSEADOR_H
-#define INC_7542_VERIFICADOR_EBPF_PARSEADOR_H
+#ifndef PARSEADOR_H_
+#define PARSEADOR_H_
 
 
 #include <string>
@@ -12,13 +12,13 @@
 #include "Instruccion.h"
 
 class Parseador {
-private:
+ private:
      const char finDeLabel;
      const char delimitador;
      const char finArg;
      int iteracion;
      Instruccion parsearInstruccion(std::string& linea);
-public:
+ public:
     Parseador();
     void parsearInstrucciones(std::ifstream& archivo,
              std::list<Instruccion>& instrucciones);
@@ -26,4 +26,4 @@ public:
 
 
 
-#endif //INC_7542_VERIFICADOR_EBPF_PARSEADOR_H
+#endif  // PARSEADOR_H_
