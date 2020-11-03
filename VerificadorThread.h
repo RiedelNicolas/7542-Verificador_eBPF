@@ -12,7 +12,7 @@
 #include "PilaProtegida.h"
 #include "BuzonResultados.h"
 
-class verificadorThread : public Thread{
+class VerificadorThread : public Thread{
 private:
     Grafo* grafo;
     Modelador* modelador;
@@ -20,8 +20,7 @@ private:
     BuzonResultados& resultados;
 
 public:
-    verificadorThread(PilaProtegida& archivos,
-                      BuzonResultados resultados);
+    VerificadorThread(PilaProtegida &archivos, BuzonResultados &resultados);
     virtual void run() override ;
 };
 
