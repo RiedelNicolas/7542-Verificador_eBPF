@@ -4,10 +4,19 @@
 
 #ifndef INC_7542_VERIFICADOR_EBPF_VERIFICADOREBFP_H
 #define INC_7542_VERIFICADOR_EBPF_VERIFICADOREBFP_H
-
+#include "PilaProtegida.h"
+#include "VerificadorThread.h"
+#include "BuzonResultados.h"
 
 class VerificadorEBFP {
-
+private:
+    PilaProtegida archivos;
+    BuzonResultados resultados;
+    int cantidadThreads;
+public:
+    VerificadorEBFP(int argc, char** argv);
+    verificar();
+    mostrarResultados();
 };
 
 
