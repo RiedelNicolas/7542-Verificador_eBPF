@@ -5,8 +5,10 @@
 
 int main(int argc, char **argv) {
     BuzonResultados buzon;
-    std::strgin
-    buzon.AgregarResultado((std::string &) "hola", "jorge");
+    buzon.AgregarResultado("hola", "jorge");
+    buzon.AgregarResultado("ana", "maria");
+    buzon.AgregarResultado("bruce","wayne");
 
+    buzon.MostrarResultados();
 
 }

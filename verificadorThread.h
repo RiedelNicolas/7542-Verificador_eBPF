@@ -1,0 +1,14 @@
+//
+// Created by riedel on 3/11/20.
+//
+
+#ifndef INC_7542_VERIFICADOR_EBPF_VERIFICADORTHREAD_H
+#define INC_7542_VERIFICADOR_EBPF_VERIFICADORTHREAD_H
+
+
+class verificadorThread {
+
+};
+
+
+#endif //INC_7542_VERIFICADOR_EBPF_VERIFICADORTHREAD_H
