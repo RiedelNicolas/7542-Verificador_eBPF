@@ -2,8 +2,8 @@
 // Created by riedel on 3/11/20.
 //
 
-#ifndef INC_7542_VERIFICADOR_EBPF_VERIFICADORTHREAD_H
-#define INC_7542_VERIFICADOR_EBPF_VERIFICADORTHREAD_H
+#ifndef VERIFICADORTHREAD_H_
+#define VERIFICADORTHREAD_H_
 
 
 #include "Thread.h"
@@ -12,17 +12,17 @@
 #include "PilaProtegida.h"
 #include "BuzonResultados.h"
 
-class VerificadorThread : public Thread{
-private:
+class VerificadorThread : public Thread {
+ private:
     Grafo* grafo;
     Modelador* modelador;
     PilaProtegida& archivos;
     BuzonResultados& resultados;
 
-public:
+ public:
     VerificadorThread(PilaProtegida &archivos, BuzonResultados &resultados);
-    virtual void run() override ;
+    void run() override;
 };
 
 
-#endif //INC_7542_VERIFICADOR_EBPF_VERIFICADORTHREAD_H
+#endif  // VERIFICADORTHREAD_H_
