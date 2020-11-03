@@ -18,7 +18,6 @@ private:
     Nodo& buscarNodo(std::string buscado);
     bool dfsCiclo(int principio, std::vector<int> &visitado);
 public:
-    Grafo();
     void agregarNodo(Nodo nodo);
     int insertarArista(int origen, int destino);
     int insertarArista(int origen, std::string tagDestino);

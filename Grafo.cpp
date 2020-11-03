@@ -7,16 +7,13 @@
 enum Estado {BLANCO, GRIS, NEGRO};
 
 
-Grafo::Grafo(){
-
-}
 
 void Grafo::agregarNodo(Nodo nodo) {
     this->nodos.push_back(nodo);
 }
 
 int Grafo::insertarArista(int origen, int destino) {
-    if( !existeNodo(origen) || !existeNodo(destino) ){
+    if ( !existeNodo(origen) || !existeNodo(destino) ) {
         return -1;
     }
     buscarNodo(origen).agregar_adyacente(&buscarNodo(destino));
@@ -24,7 +21,7 @@ int Grafo::insertarArista(int origen, int destino) {
 }
 
 int Grafo::insertarArista(int origen, std::string tagDestino) {
-    if( !existeNodo(origen) || !existeNodo(tagDestino) ){
+    if ( !existeNodo(origen) || !existeNodo(tagDestino) ) {
         return -1;
     }
     buscarNodo(origen).agregar_adyacente(&buscarNodo(tagDestino));
@@ -36,9 +33,8 @@ const std::list<Nodo>& Grafo::getNodos() {
 }
 
 bool Grafo::existeNodo(int buscado) {
-
     for (auto &i : this->nodos) {
-         if ( i.obtenerId() == buscado ){
+         if ( i.obtenerId() == buscado ) {
              return true;
          }
     }
@@ -46,9 +42,8 @@ bool Grafo::existeNodo(int buscado) {
 }
 
 bool Grafo::existeNodo(std::string buscado) {
-
     for (auto &i : this->nodos) {
-        if ( i.obtenerLabel() == buscado ){
+        if ( i.obtenerLabel() == buscado ) {
             return true;
         }
     }
@@ -56,19 +51,17 @@ bool Grafo::existeNodo(std::string buscado) {
 }
 
 Nodo& Grafo::buscarNodo(int buscado) {
-
     for (auto &i : this->nodos) {
-        if ( i.obtenerId() == buscado ){
+        if ( i.obtenerId() == buscado ) {
             return i;
         }
-    }//default,se supone que siempre se recibe un nodo valido.
+    }  // default,se supone que siempre se recibe un nodo valido.
     return this->nodos.back();
 }
 
 Nodo& Grafo::buscarNodo(std::string buscado) {
-
     for (auto &i : this->nodos) {
-        if ( i.obtenerLabel() == buscado ){
+        if ( i.obtenerLabel() == buscado ) {
             return i;
         }
     }
@@ -79,7 +72,7 @@ bool Grafo::esCiclico() {
    std::vector<int> estados (this->nodos.size(), BLANCO);
     for (auto &i : this->nodos) {
         if ( estados [i.obtenerId()] == BLANCO ){
-            if( dfsCiclo(i.obtenerId(), estados) == true  ){
+            if( dfsCiclo(i.obtenerId(), estados) == true  ) {
                 return true;
             }
         }
@@ -94,7 +87,7 @@ bool Grafo::dfsCiclo(int principio, std::vector<int>& estados) {
             return true;
         }
         if(estados[i->obtenerId()] == BLANCO){
-            if(dfsCiclo(i->obtenerId(), estados )){
+            if(dfsCiclo(i->obtenerId(), estados )) {
                 return true;
             }
         }
