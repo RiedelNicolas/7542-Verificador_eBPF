@@ -3,6 +3,7 @@
 //
 
 #include "BuzonResultados.h"
+#include <iostream>
 
 
 void BuzonResultados::AgregarResultado(std::string archivo,
@@ -15,3 +16,9 @@ void BuzonResultados::ordenar() {
     this->lista.sort();
 }
 
+void BuzonResultados::MostrarResultados() {
+    this->ordenar();
+    for(auto &i: this->lista){
+        std::cout << i << std::endl;
+    }
+}
