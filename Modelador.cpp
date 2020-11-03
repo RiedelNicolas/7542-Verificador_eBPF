@@ -37,9 +37,6 @@ void Modelador::relacionarInstrucciones(Grafo &grafo) {
     }
 }
 
-Modelador::~Modelador() {
-}
-
 int Modelador::modelar(Grafo &grafo, std::string path) {
     if ( this->parsearInstrucciones(path) != 0 ) {
         return -1;

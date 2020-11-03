@@ -10,6 +10,7 @@
 #include <string>
 #include <list>
 
+  // Modela un grafo en base a un archivo.
 class Modelador{
  private:
     std:: list<Instruccion> instrucciones;
@@ -18,8 +19,8 @@ class Modelador{
     void relacionarInstrucciones(Grafo& grafo);
     int parsearInstrucciones(std::string path);
  public:
+    // Carga el codigo recibido en el grafo.
     int modelar(Grafo& grafo, std::string path);
-    ~Modelador();
 };
 
 

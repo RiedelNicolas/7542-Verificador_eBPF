@@ -7,7 +7,8 @@
 
 
 #include <thread>
-
+// Clase abstracta Thread.
+// Fuertemente basada en la brindada por la catedra.
 class Thread {
  private:
     std::thread thread;

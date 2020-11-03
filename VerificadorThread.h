@@ -20,7 +20,9 @@ class VerificadorThread : public Thread {
     BuzonResultados& resultados;
 
  public:
+    // Constructor, recibe referencias a los objetos compartidos.
     VerificadorThread(PilaProtegida &archivos, BuzonResultados &resultados);
+    //
     void run() override;
 };
 

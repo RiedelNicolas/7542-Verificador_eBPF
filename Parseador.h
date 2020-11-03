@@ -11,6 +11,7 @@
 #include <fstream>
 #include "Instruccion.h"
 
+// Clase para parsear los archivos de instrucciones.
 class Parseador {
  private:
      const char finDeLabel;
@@ -19,6 +20,7 @@ class Parseador {
      int iteracion;
      Instruccion parsearInstruccion(std::string& linea);
  public:
+    // Constructor, define las constantes usadads para parsear.
     Parseador();
     void parsearInstrucciones(std::ifstream& archivo,
              std::list<Instruccion>& instrucciones);
