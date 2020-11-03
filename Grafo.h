@@ -2,30 +2,29 @@
 // Created by riedel on 28/10/20.
 //
 
-#ifndef INC_7542_VERIFICADOR_EBPF_GRAFO_H
-#define INC_7542_VERIFICADOR_EBPF_GRAFO_H
+#ifndef GRAFO_H_
+#define GRAFO_H_
 #include <list>
 #include <string>
 #include <vector>
 #include "Nodo.h"
 
 class Grafo {
-private:
+ private:
     std::list<Nodo> nodos;
     bool existeNodo(int buscado);
     bool existeNodo(std::string buscado);
     Nodo& buscarNodo(int buscado);
     Nodo& buscarNodo(std::string buscado);
     bool dfsCiclo(int principio, std::vector<int> &visitado);
-public:
+ public:
     void agregarNodo(Nodo nodo);
     int insertarArista(int origen, int destino);
     int insertarArista(int origen, std::string tagDestino);
     const std::list<Nodo>& getNodos();
     bool esCiclico();
     bool desconectado();
-
 };
 
 
-#endif //INC_7542_VERIFICADOR_EBPF_GRAFO_H
+#endif  // GRAFO_H_
