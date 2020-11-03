@@ -11,12 +11,11 @@ void PilaProtegida::apilar(std::string recibido) {
 
 std::string PilaProtegida::desapilar() {
     Bloquear b (this->m);
+    if(this->pila.empty() ){ // Si la pila esta vacia se devuelve un string vacio.
+        return std::string("");
+    }
     std::string top = this->pila.top();
     this->pila.pop();
     return top;
 }
 
-bool PilaProtegida::estaVacia() {
-    Bloquear b (this->m);
-    return this->pila.empty();
-}

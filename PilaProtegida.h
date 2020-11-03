@@ -18,7 +18,6 @@ private:
 public:
     void apilar(std::string);
     std::string desapilar();
-    bool estaVacia();
 };
 
 

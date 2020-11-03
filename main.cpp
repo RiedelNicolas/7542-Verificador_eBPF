@@ -2,7 +2,7 @@
 #include "Grafo.h"
 #include "Modelador.h"
 
-int main() {
+int main(int argc, char **argv) {
 
     bool ci;
     Grafo grafo;
