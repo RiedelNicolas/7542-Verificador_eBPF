@@ -2,17 +2,17 @@
 // Created by riedel on 29/10/20.
 //
 
-#ifndef INC_7542_VERIFICADOR_EBPF_NODO_H
-#define INC_7542_VERIFICADOR_EBPF_NODO_H
+#ifndef NODO_H_
+#define NODO_H_
 #include <string>
 #include <list>
 
 class Nodo {
-private:
+ private:
     int id;
     std::string label;
-    std::list<Nodo*> adyacentes; //No se puede usar containers a referencias.
-public:
+    std::list<Nodo*> adyacentes;  // No se puede usar containers a referencias.
+ public:
     explicit Nodo(const int& id);
     explicit Nodo(const int& id, const std::string& label);
     const std::list<Nodo*>& getAdyacentes();
@@ -22,4 +22,4 @@ public:
 };
 
 
-#endif //INC_7542_VERIFICADOR_EBPF_NODO_H
+#endif  // NODO_H_
