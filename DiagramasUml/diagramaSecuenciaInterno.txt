@@ -1,0 +1,45 @@
+@startuml
+hide footbox
+
+actor user
+
+user -> Modelador: Modelador()
+activate Modelador
+user -> Grafo: Grafo()
+activate Grafo
+user-> Modelador: modelar(&: grafo, archivo)
+Modelador -> Modelador : ParsearInstrucciones(archivo)
+activate Modelador #DarkSalmon
+Modelador->Parseador : ParsearInstrucciones(archivo)
+activate Parseador
+loop paraCadaLinea
+Parseador->Instruccion: Crear()
+Instruccion-->Parseador: instruccion
+end
+Parseador --> Modelador: instrucciones
+deactivate Parseador
+deactivate Modelador #DarkSalmon
+Modelador -> Modelador : cargarInstrucciones(&: Grafo)
+activate Modelador #DarkSalmon
+loop porCadaInstruccion
+Modelador->Grafo: agregarNodo(Instruccion.getId() )
+end
+deactivate Modelador #DarkSalmon
+
+Modelador -> Modelador : Relacionar(&: Grafo)
+activate Modelador #DarkSalmon
+loop porCadaInstruccion
+Modelador ->Instruccion: esRegular()
+alt esRegular
+Modelador->Grafo: insertarArista(Instruccion.getID, +1 )
+else 
+Modelador ->Instruccion: esJump()
+alt esJump
+Modelador->Grafo: insertarArista(Instruccion.getID, Instruccion.getArgs )
+end
+end
+deactivate Modelador #DarkSalmon
+
+Modelador-->user: GrafoModelado
+deactivate Modelador 
+@endumla
