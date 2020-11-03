@@ -4,8 +4,8 @@
 
 #include "Grafo.h"
 #include <vector>
-enum Estado {BLANCO, GRIS, NEGRO};
 
+enum Estado {BLANCO, GRIS, NEGRO};  // Para DFS.
 
 
 void Grafo::agregarNodo(Nodo nodo) {
