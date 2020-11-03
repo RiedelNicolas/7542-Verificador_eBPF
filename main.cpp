@@ -1,8 +1,7 @@
-#include <iostream>
-#include "Grafo.h"
-#include "Modelador.h"
-#include "BuzonResultados.h"
+#include "VerificadorEBFP.h"
 
 int main(int argc, char **argv) {
-
+    VerificadorEBFP verificador(argc, argv);
+    verificador.verificar();
+    verificador.mostrarResultados();
 }

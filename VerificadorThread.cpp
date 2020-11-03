@@ -8,19 +8,21 @@
 void VerificadorThread::run() {
     std::string path = this->archivos.desapilar();
     if(path == "") return; //se termino la cola.
-
-    this->grafo = new Grafo;
-    this->modelador = new Modelador;
-    modelador->modelar(*grafo,path);
-    if(grafo->esCiclico()){
-        resultados.agregarConBucle(path);
-    }else if(grafo->desconectado()){
-        resultados.agregarSinUsar(path);
-    }else{
-        resultados.agregarExitoso(path);
-    }
-    delete this->grafo;
-    delete this->modelador;
+    do {
+        this->grafo = new Grafo;
+        this->modelador = new Modelador;
+        modelador->modelar(*grafo,path);
+        if(grafo->esCiclico()){
+            resultados.agregarConBucle(path);
+        }else if(grafo->desconectado()){
+            resultados.agregarSinUsar(path);
+        }else{
+            resultados.agregarExitoso(path);
+        }
+        delete this->grafo;
+        delete this->modelador;
+        path = this->archivos.desapilar();
+    } while (path != "" );
 }
 
 VerificadorThread::VerificadorThread(PilaProtegida &archivos, BuzonResultados &resultados
