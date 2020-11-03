@@ -54,3 +54,10 @@ Clase principal del programa, se encarga de que todas interactuen. Es la encarga
 Clase heredada de Thread. Su flujo consiste en pedir un archivo a la pila compartida, analizarlo y cargar el resultado en el buzon repetido. Repite hasta que la cola este vacia. 
 
 ## Diagrama de Clases
+
+
+
+![diagramaDeClases](DiagramasUml/diagramaDeClases.png)
+
+
+
