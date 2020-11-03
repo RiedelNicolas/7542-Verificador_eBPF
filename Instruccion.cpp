@@ -4,7 +4,7 @@
 
 #include "Instruccion.h"
 
-Instruccion::Instruccion(const int& numInstruccion ){
+Instruccion::Instruccion(const int& numInstruccion ) {
     this->numInstruccion = numInstruccion;
 }
 
@@ -44,7 +44,7 @@ bool Instruccion::esRegular() {
     return !(esJump() || esRetorno());
 }
 
-void Instruccion::setArgs(std::vector<std::string> &args) {
+void Instruccion::setArgs(const std::vector<std::string> &args) {
     this->argumentos = args;
 }
 
