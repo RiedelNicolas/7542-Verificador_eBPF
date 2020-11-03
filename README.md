@@ -64,3 +64,9 @@ Clase heredada de Thread. Su flujo consiste en pedir un archivo a la pila compar
 ##   Diagrama de secuencia, verificar archivos.
 
 ![Diagrama de secuencia](DiagramasUml/diagramaDeSecuencia.png)
+
+## Diagrama de secuencia, como se modela el grafo.
+
+
+
+![](DiagramasUml/diagramaSecuenciaInterno.png)
