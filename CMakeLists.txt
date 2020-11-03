@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(7542_Verificador_eBPF main.cpp Grafo.cpp Instruccion.cpp Grafo.h Instruccion.h Nodo.cpp Nodo.h Modelador.cpp Modelador.h Parseador.cpp Parseador.h Thread.cpp Thread.h Bloquear.cpp Bloquear.h PilaProtegida.cpp PilaProtegida.h)
 
-target_link_options(7542_Verificador_eBPF PRIVATE -lm)
+target_link_options(7542_Verificador_eBPF PRIVATE -lm -pthread)
 
 target_compile_options (7542_Verificador_eBPF PRIVATE -std=c++11 -Wall -Werror -pedantic -pedantic-errors
-        -O3 -ggdb -DDEBUG -fno-inline)
+        -O3 -ggdb -DDEBUG -fno-inline )
