@@ -2,21 +2,21 @@
 // Created by riedel on 3/11/20.
 //
 
-#ifndef INC_7542_VERIFICADOR_EBPF_VERIFICADOREBFP_H
-#define INC_7542_VERIFICADOR_EBPF_VERIFICADOREBFP_H
+#ifndef VERIFICADOREBFP_H_
+#define VERIFICADOREBFP_H_
 #include "PilaProtegida.h"
 #include "BuzonResultados.h"
 
 class VerificadorEBFP {
-private:
+ private:
     PilaProtegida archivos;
     BuzonResultados resultados;
     int cantidadThreads;
-public:
+ public:
     VerificadorEBFP(int argc, char** argv);
     void verificar();
     void mostrarResultados();
 };
 
 
-#endif //INC_7542_VERIFICADOR_EBPF_VERIFICADOREBFP_H
+#endif  // VERIFICADOREBFP_H_
