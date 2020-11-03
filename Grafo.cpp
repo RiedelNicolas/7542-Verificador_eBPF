@@ -69,25 +69,25 @@ Nodo& Grafo::buscarNodo(std::string buscado) {
 }
 
 bool Grafo::esCiclico() {
-   std::vector<int> estados (this->nodos.size(), BLANCO);
-    for (auto &i : this->nodos) {
-        if ( estados [i.obtenerId()] == BLANCO ){
-            if( dfsCiclo(i.obtenerId(), estados) == true  ) {
-                return true;
-            }
-        }
-    }
-    return false;
+    std::vector<int> estados(this->nodos.size(), BLANCO);
+     for (auto &i : this->nodos) {
+         if ( estados[ i.obtenerId() ] == BLANCO ) {
+             if ( dfsCiclo(i.obtenerId(), estados) == true ) {
+                 return true;
+             }
+         }
+     }
+     return false;
 }
 
 bool Grafo::dfsCiclo(int principio, std::vector<int>& estados) {
     estados[principio] = GRIS;
-    for (auto &i : buscarNodo(principio).getAdyacentes() ) {
-        if(estados[i->obtenerId()] == GRIS){
+    for ( auto &i : buscarNodo(principio).getAdyacentes() ) {
+        if (estados[i->obtenerId()] == GRIS) {
             return true;
         }
-        if(estados[i->obtenerId()] == BLANCO){
-            if(dfsCiclo(i->obtenerId(), estados )) {
+        if (estados[i->obtenerId()] == BLANCO) {
+            if (dfsCiclo(i->obtenerId(), estados )) {
                 return true;
             }
         }
