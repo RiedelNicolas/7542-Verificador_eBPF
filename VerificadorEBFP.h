@@ -1,0 +1,14 @@
+//
+// Created by riedel on 3/11/20.
+//
+
+#ifndef INC_7542_VERIFICADOR_EBPF_VERIFICADOREBFP_H
+#define INC_7542_VERIFICADOR_EBPF_VERIFICADOREBFP_H
+
+
+class VerificadorEBFP {
+
+};
+
+
+#endif //INC_7542_VERIFICADOR_EBPF_VERIFICADOREBFP_H
