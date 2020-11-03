@@ -3,12 +3,12 @@
 //
 
 #include "VerificadorEBFP.h"
-
 #include "VerificadorThread.h"
+#include <vector>
 
 VerificadorEBFP::VerificadorEBFP(int argc, char **argv) {
     this->cantidadThreads = std::stoi(argv[1]);
-    for(int i = 2; i < argc; i++){
+    for (int i = 2; i < argc; i++) {
         this->archivos.apilar(argv[i]);
     }
 }
@@ -22,8 +22,7 @@ void VerificadorEBFP::verificar() {
     for (int i = 0; i < this->cantidadThreads; i++) {
         threads.push_back(new VerificadorThread(
                             this->archivos,
-                            this->resultados
-                ) );
+                            this->resultados));
     }
 
     for (int i = 0; i < this->cantidadThreads; i++) {
@@ -34,5 +33,4 @@ void VerificadorEBFP::verificar() {
         threads[i]->join();
         delete threads[i];
     }
-
 }
