@@ -28,10 +28,6 @@ std::vector<std::string>& Instruccion::getArgs() {
     return this->argumentos;
 }
 
-std::string& Instruccion::getIdentificador() {
-    return this->identificador;
-}
-
 bool Instruccion::esJump() {
     return (this->identificador[0] == 'j' );
 }

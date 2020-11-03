@@ -23,7 +23,6 @@ class Instruccion {
     int& getNum();
     std::vector<std::string>& getArgs();
     std::string& getEtiqueta();
-    std::string& getIdentificador();
     bool esJump();
     bool esRegular();
     bool esRetorno();
