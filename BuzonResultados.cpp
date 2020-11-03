@@ -5,8 +5,8 @@
 #include "BuzonResultados.h"
 
 
-void BuzonResultados::AgregarResultado(std::string &archivo,
-                                       std::string &mensaje) {
+void BuzonResultados::AgregarResultado(std::string archivo,
+                                       std::string mensaje) {
     Bloquear b (this->m);
     this->lista.push_back(archivo + mensaje);
 }

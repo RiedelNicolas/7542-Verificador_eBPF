@@ -1,15 +1,12 @@
 #include <iostream>
 #include "Grafo.h"
 #include "Modelador.h"
+#include "BuzonResultados.h"
 
 int main(int argc, char **argv) {
+    BuzonResultados buzon;
+    std::strgin
+    buzon.AgregarResultado((std::string &) "hola", "jorge");
 
-    bool ci;
-    Grafo grafo;
-    Modelador modelador;
-    modelador.modelar(grafo,"test.txt");
-    ci = grafo.desconectado();
-    std::cout << ci;
-    return 0;
 
 }
