@@ -1,0 +1,106 @@
+@startuml
+
+class Bloquear {
+  -mutex& mut
+  +Bloquear()
+}
+
+class BuzonResultados {
+   -list resultados
+    -mutex m
+   +agregarConBucle(nombreArchivo)
+   +agregarSinUsar(nombreArchivo)
+   +agregarExitoso(nombreArchivo)
+   +mostrarResultados()
+}
+
+class Grafo {
+   -list nodos
+   
+   +agregarNodo(Nodo nodo)
+   +insertarArista(int origen, int destino)
+   + getNodos()
+   bool esCiclico()
+   bool desconectado()
+}
+
+class Instruccion {
+   -list argumentos
+   -string identificador
+   -string label
+   -int numeroInstruccion
+
+   +bool esJump()
+   +bool esRegular() 
+   +bool esRetorno()
+}
+
+class Modelador {
+
+   +int modelar()
+ 
+}
+
+class Nodo {
+	-int id
+	-string label
+
+	+getAdyacentes()
+	+agregarAdyacente()
+}
+
+class Parseador {
+
+	+parsearInstrucciones(path,
+							list& intrucciones)
+}
+
+
+class PilaProtegida {
+	-mutex m
+
+	+apilar(string)
+	+string desapilar()
+}
+
+abstract class Thread{
+	-thread
+}
+
+class VerificadorEBFP{
+	+verificar
+	+mostrarResultados()
+}
+
+class VerificadorThread{
+	+run()
+}
+
+BuzonResultados -[dashed]-> Bloquear
+PilaProtegida -[dashed]-> Bloquear
+Nodo "0..*" --* Grafo
+Nodo "0..*" o-- Nodo
+
+Modelador -[dashed]-> Grafo
+Modelador --> Parseador
+
+VerificadorThread "1..*"<-[dashed]- VerificadorEBFP
+
+Instruccion "0..*"--* Modelador
+
+VerificadorThread --> Modelador
+VerificadorThread --> Grafo
+
+Thread ^-- VerificadorThread
+
+VerificadorThread -[dashed]-> BuzonResultados
+VerificadorThread -[dashed]-> PilaProtegida
+
+VerificadorEBFP *-- BuzonResultados
+VerificadorEBFP *-- PilaProtegida
+
+Parseador -[dashed]-> "1..*"Instruccion
+
+
+
+@enduml
